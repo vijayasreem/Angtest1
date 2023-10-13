@@ -1,0 +1,39 @@
+﻿
+
+
+<form [formGroup]="customerForm">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name">
+    <div *ngIf="customerForm.get('name').invalid && (customerForm.get('name').dirty || customerForm.get('name').touched)">
+      <div *ngIf="customerForm.get('name').errors.required">Name is required.</div>
+    </div>
+  </div>
+  
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" id="age" formControlName="age">
+    <div *ngIf="customerForm.get('age').invalid && (customerForm.get('age').dirty || customerForm.get('age').touched)">
+      <div *ngIf="customerForm.get('age').errors.required">Age is required.</div>
+      <div *ngIf="customerForm.get('age').errors.min">Age must be at least 18.</div>
+    </div>
+  </div>
+  
+  <div>
+    <label for="income">Family Income:</label>
+    <input type="number" id="income" formControlName="income">
+    <div *ngIf="customerForm.get('income').invalid && (customerForm.get('income').dirty || customerForm.get('income').touched)">
+      <div *ngIf="customerForm.get('income').errors.required">Family Income is required.</div>
+    </div>
+  </div>
+  
+  <div>
+    <label for="crifScore">CRIF Score:</label>
+    <input type="number" id="crifScore" formControlName="crifScore">
+    <div *ngIf="customerForm.get('crifScore').invalid && (customerForm.get('crifScore').dirty || customerForm.get('crifScore').touched)">
+      <div *ngIf="customerForm.get('crifScore').errors.required">CRIF Score is required.</div>
+    </div>
+  </div>
+  
+  <button type="submit" [disabled]="customerForm.invalid">Submit</button>
+</form>
